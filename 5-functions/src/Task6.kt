@@ -15,17 +15,20 @@ Boolean (доступно ему это авто или нет)
 
 
 fun main() {
-    val vosrast = 23
-    val staj = 7
+    val age = 27
+    val experience = 7
+    val carBrand = readLine()!!.toString()
 
-    val result = carSharing(vosrast,staj)
+    val result = carSharing(carBrand, age, experience)
     println(result)
 }
 
-fun carSharing(age: Int, experience: Int):Boolean{
-    val userStatus = when {
-        age >= 26 && experience >= 6 -> true
-        age >= 21 && experience >= 2 -> true
+fun carSharing(carBrand: String, age: Int, experience: Int): Boolean {
+    val userStatus = when (carBrand) {
+        "Audi" -> !(age < 26 || experience < 6)
+
+        "BMV" -> !(age < 26 || experience < 6)
+
         else -> false
     }
     return userStatus
